@@ -1,23 +1,24 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as errorhandler from 'strong-error-handler';
+import { Route } from './rotues/route';
 
-// App class는 반드시 Singleton으로 해야 합니다.
+// App class must be only one
 class App {
 
   public app: express.Application;
-  //public routes: Routes = new Routes();
+  public route: Route = new Route();
 
   constructor() {
       this.app = express(); 
       this.config();
-      //this.routes.routes(this.app);
+      this.route.initialize(this.app);
       this.errorHandler();
   }
 
   private config(): void{
 
-      // 외부 라이브러리 설정은 여기서 합니다.      
+      // request and response settings     
       this.app.use(bodyParser.json({limit: '5mb'}));
       this.app.use(bodyParser.urlencoded({extended: true}));
   }
