@@ -3,6 +3,7 @@ import {Request, Response} from "express";
 import {createUser, loginUser} from '../controller/UserControoler';
 import {createBoard, getBoards, createComment, getCommentsByBoard} from '../controller/BoardController';
 import {createChallenge, getChallenges, createChallengeAnswer, getChallengeAnswers} from '../controller/ChallengeController';
+//import {isAuthenticated} from '../auth/Auth';
 
 // main routes
 
@@ -42,3 +43,100 @@ export class Route {
         })
     }
 }
+
+/**
+ * @swagger
+ * tags:
+ *   name: UserRegister
+ *   description: 회원가입 관련 정보
+ * definitions:
+ *   Request:
+ *     type: object
+ *     required:
+ *       - content
+ *     properties:
+ *       email:
+ *         type: string
+ *         description: EMAIL
+ *       name:
+ *         type: string
+ *         description: 유저 관련 name
+ *       password:
+ *         type: string
+ *         description: 비밀번호
+ *   Response:
+ *     type: object
+ *     required:
+ *       - content
+ *     properties:
+ *       accessToken:
+ *         type: string
+ *         description: 로그인 토큰 정보
+ */
+
+/**
+ * @swagger
+ * /api/user:
+ *   post:
+ *     summary: 회원가입
+ *     tags: [UserRegister]
+ *     responses:
+ *       200:
+ *         description: login result
+ *         schema:
+ *           type: object
+ *           properties:
+ *             todos:
+ *               type: string
+ *               items:
+ *                 $ref: '#/definitions/Todo'
+ */
+
+
+ /**
+ * @swagger
+ * tags:
+ *   name: SignIn
+ *   description: 로그인 관련 정보
+ * definitions:
+ *   Request:
+ *     type: object
+ *     required:
+ *       - content
+ *     properties:
+ *       email:
+ *         type: string
+ *         description: EMAIL
+ *       name:
+ *         type: string
+ *         description: 유저 관련 name
+ *       password:
+ *         type: string
+ *         description: 비밀번호
+ *   Response:
+ *     type: object
+ *     required:
+ *       - content
+ *     properties:
+ *       accessToken:
+ *         type: string
+ *         description: 로그인 토큰 정보
+ */
+
+/**
+ * @swagger
+ * /api/user/login:
+ *   post:
+ *     summary: 로그인
+ *     tags: [SignIn]
+ *     responses:
+ *       200:
+ *         description: login result
+ *         schema:
+ *           type: object
+ *           properties:
+ *             todos:
+ *               type: string
+ *               items:
+ *                 $ref: '#/definitions/Todo'
+ */

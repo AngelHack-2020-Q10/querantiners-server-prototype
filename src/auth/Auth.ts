@@ -3,8 +3,10 @@ import * as jwt from 'jsonwebtoken';
 import * as expressJwt from 'express-jwt';
 import compose from 'composable-middleware';
 
+
 const validateJwt: expressJwt.RequestHandler = expressJwt({
-    secret: 'signal', 
+    secret: 'signal',
+    algorithms: ['HS256']
 });
 
 export function isAuthenticated() {
@@ -18,7 +20,7 @@ export function isAuthenticated() {
         })
         .use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
             // added to req
-        })
+        });
 }
 
 // need make config

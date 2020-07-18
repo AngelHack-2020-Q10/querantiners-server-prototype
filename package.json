@@ -15,12 +15,15 @@
     "composable-middleware": "^0.3.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
+    "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.1.0",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.21.10",
     "sequelize-typescript": "^1.1.0",
     "strong-error-handler": "^3.5.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.6"
   }
