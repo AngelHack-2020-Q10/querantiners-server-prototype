@@ -3,7 +3,10 @@ import * as bodyParser from 'body-parser';
 import * as errorhandler from 'strong-error-handler';
 import * as swaggerUi from 'swagger-ui-express';
 import * as swaggerJSDoc from 'swagger-jsdoc';
-import { Route } from './rotues/Route';
+import * as cors from 'cors';
+
+import {Route} from './rotues/Route';
+
 
 
 const swaggerDefinition = {
@@ -44,6 +47,7 @@ class App {
       // request and response settings     
       this.app.use(bodyParser.json({limit: '5mb'}));
       this.app.use(bodyParser.urlencoded({extended: true}));
+      this.app.use(cors());
       this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   }
   

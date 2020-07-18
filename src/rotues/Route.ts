@@ -3,7 +3,7 @@ import {Request, Response} from "express";
 import {createUser, loginUser} from '../controller/UserControoler';
 import {createBoard, getBoards, createComment, getCommentsByBoard} from '../controller/BoardController';
 import {createChallenge, getChallenges, createChallengeAnswer, getChallengeAnswers} from '../controller/ChallengeController';
-//import {isAuthenticated} from '../auth/Auth';
+import { isAuthenticatedTypescript } from "../auth/Auth";
 
 // main routes
 
@@ -14,11 +14,11 @@ export class Route {
         .post(createUser);
         app.route('/api/user/login')
         .post(loginUser);
-
+        
         app.route('/api/board')
         .post(createBoard);
         app.route('/api/board')
-        .get(getBoards);
+        .get(isAuthenticatedTypescript, getBoards);
 
         app.route('/api/board/comment')
         .post(createComment);
