@@ -2,7 +2,7 @@ import {Request, Response} from "express";
 
 import {createUser, loginUser} from '../controller/UserControoler';
 import {createBoard, getBoards, createComment, getCommentsByBoard} from '../controller/BoardController';
-import {createChallenge, getChallenges} from '../controller/ChallengeController';
+import {createChallenge, getChallenges, createChallengeAnswer, getChallengeAnswers} from '../controller/ChallengeController';
 
 // main routes
 
@@ -28,6 +28,11 @@ export class Route {
         .post(createChallenge);
         app.route('/api/challenge')
         .get(getChallenges);
+
+        app.route('/api/challenge/answer')
+        .post(createChallengeAnswer);
+        app.route('/api/challenge/answer')
+        .get(getChallengeAnswers);
 
         app.route('/')
         .get((req: Request, res: Response) => {            
