@@ -1,6 +1,7 @@
 import * as crypto from 'crypto';
 import {Table, Column, Model, DataType, PrimaryKey, BeforeCreate, CreatedAt, UpdatedAt, AllowNull, AutoIncrement, Unique} from 'sequelize-typescript';
 
+
 @Table
 export class User extends Model<User> {
 

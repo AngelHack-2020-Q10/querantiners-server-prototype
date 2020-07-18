@@ -1,4 +1,6 @@
-import {Table, Column, Model, DataType, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, Default, AllowNull} from 'sequelize-typescript';
+import {Table, Column, Model, DataType, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, Default, AllowNull, ForeignKey} from 'sequelize-typescript';
+import { User } from './User';
+
 
 @Table
 export class Board extends Model<Board> {
@@ -8,14 +10,21 @@ export class Board extends Model<Board> {
     @Column(DataType.BIGINT)
     id: number;
 
+    @ForeignKey(() => User)
+    @Column(DataType.BIGINT)
+    userId: number;
+
+    @AllowNull(false)
     @Default(0)
     @Column(DataType.TINYINT)
     status: number;
 
+    @AllowNull(false)
     @Default(0)
     @Column(DataType.FLOAT)
     latitude: number;
 
+    @AllowNull(false)
     @Default(0)
     @Column(DataType.FLOAT)
     longitude: number;

@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as errorhandler from 'strong-error-handler';
-import { Route } from './rotues/route';
+import { Route } from './rotues/Route';
 
 // App class must be only one
 class App {
